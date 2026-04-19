@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools==82.0.1", "setuptools-scm==10.0.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "template-python-library"
+requires-python = ">= 3.11"
+# maintainers = [{ name = "<...>", email = "<...>" }]
+description = "A template repository for Python libraries."
+readme = "README.md"
+license = "Unlicense"
+license-files = ["LICENSE.md"]
+keywords = ["template", "python", "library"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+dynamic = ["version"]
+
+[project.scripts]
+# <...> = "<...>.__main__:main"
+
+[project.urls]
+# Source = "https://github.com/<...>/<...>"
+# Issues = "https://github.com/<...>/<...>/issues"
+# Documentation = "https://<...>.readthedocs.io/"
+# Download = "https://pypi.org/project/<...>/#files"
+
+[dependency-groups]
+dev = [
+  "committed==1.1.11",
+  "editorconfig-checker==3.6.1",
+  "lefthook==2.1.6",
+  "ruff==0.15.11",
+  "taskipy==1.14.1",
+  "ty==0.0.31",
+  "typos==1.45.1",
+]
+
+[tool.pytest]
+addopts = ["-n", "auto"]
+
+[tool.ruff]
+line-length = 79
+format.docstring-code-format = true
+format.docstring-code-line-length = 72
+lint.select = ["ALL"]
+lint.ignore = [
+  "PYI021", # docstring-in-stub
+  "D203",   # one-blank-line-before-class
+  "D213",   # multi-line-summary-second-line
+  "D418",   # overload-with-docstring
+]
+lint.per-file-ignores."tests/**.py" = [
+  "S101",    # assert
+  "INP001",  # implicit-namespace-package
+]
+lint.pycodestyle.max-doc-length = 72
+
+[tool.setuptools_scm]
+
+[tool.taskipy.settings]
+cwd = "."
+
+[tool.taskipy.tasks]
+setup = { cmd = "lefthook install", help = "set up the project" }
+check = { cmd = "lefthook run check", help = "check the code" }
+fix = { cmd = "lefthook run fix", help = "check and fix the code" }
+
+[tool.ty]
+terminal.error-on-warning = true
+
+[tool.typos]
+files.extend-exclude = ["uv.lock"]
+default.unicode = false
