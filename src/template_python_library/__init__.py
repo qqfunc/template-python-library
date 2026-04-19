@@ -1,0 +1,1 @@
+"""A template Python library."""
