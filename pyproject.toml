@@ -27,7 +27,7 @@ classifiers = [
 dynamic = ["version"]
 
 [project.scripts]
-# <...> = "<...>.__main__:main"
+add = "template_python_library.__main__:main"
 
 [project.urls]
 # Source = "https://github.com/<...>/<...>"
