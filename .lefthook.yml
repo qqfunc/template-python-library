@@ -6,44 +6,44 @@ pre-commit:
         parallel: true
         jobs:
           - name: editorconfig-checker
-            run: ec
+            run: uv run ec
           - name: Typos
-            run: typos
+            run: uv run typos
           - name: Ruff
             group:
               parallel: true
               jobs:
                 - name: Check
-                  run: ruff check
+                  run: uv run ruff check
                 - name: Format
-                  run: ruff format --check
+                  run: uv run ruff format --check
           - name: ty
-            run: ty check
+            run: uv run ty check
           - name: uv lock
             run: uv lock --check
 
 commit-msg:
   jobs:
     - name: Committed
-      run: committed --commit-file ./.git/COMMIT_EDITMSG
+      run: uv run committed --commit-file ./.git/COMMIT_EDITMSG
 
 check:
   parallel: true
   jobs:
     - name: editorconfig-checker
-      run: ec
+      run: uv run ec
     - name: Typos
-      run: typos
+      run: uv run typos
     - name: Ruff
       group:
         parallel: true
         jobs:
           - name: Check
-            run: ruff check
+            run: uv run ruff check
           - name: Format
-            run: ruff format --check
+            run: uv run ruff format --check
     - name: ty
-      run: ty check
+      run: uv run ty check
     - name: uv lock
       run: uv lock --check
 
@@ -54,20 +54,20 @@ fix:
         parallel: true
         jobs:
           - name: editorconfig-checker
-            run: ec
+            run: uv run ec
           - name: ty
-            run: ty check
+            run: uv run ty check
           - name: uv lock
             run: uv lock --check
     - name: Fix
       group:
         jobs:
           - name: Typos
-            run: typos -w
+            run: uv run typos -w
           - name: Ruff
             group:
               jobs:
                 - name: Ruff Check
-                  run: ruff check --fix
+                  run: uv run ruff check --fix
                 - name: Ruff Format
-                  run: ruff format
+                  run: uv run ruff format
