@@ -61,8 +61,6 @@ fix:
             run: uv run ec
           - name: ty
             run: uv run ty check
-          - name: uv lock
-            run: uv lock --check
     - name: Fix
       group:
         jobs:
@@ -75,3 +73,5 @@ fix:
                   run: uv run ruff check --fix
                 - name: Ruff Format
                   run: uv run ruff format
+          - name: uv lock
+            run: uv lock
