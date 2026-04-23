@@ -19,6 +19,8 @@ pre-commit:
                   run: uv run ruff format --check
           - name: ty
             run: uv run ty check
+          - name: pytest
+            run: uv run pytest
           - name: uv lock
             run: uv lock --check
 
@@ -44,6 +46,8 @@ check:
             run: uv run ruff format --check
     - name: ty
       run: uv run ty check
+    - name: pytest
+      run: uv run pytest
     - name: uv lock
       run: uv lock --check
 
