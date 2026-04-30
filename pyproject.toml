@@ -42,7 +42,7 @@ dev = [
   "lefthook==2.1.6",
   "pytest==9.0.3",
   "pytest-xdist==3.8.0",
-  "ruff==0.15.11",
+  "ruff==0.15.12",
   "taskipy==1.14.1",
   "ty==0.0.31",
   "typos==1.45.1",
