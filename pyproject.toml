@@ -39,7 +39,7 @@ add = "template_python_library.__main__:main"
 dev = [
   "committed==1.1.11",
   "editorconfig-checker==3.6.1",
-  "lefthook==2.1.6",
+  "lefthook==2.1.8",
   "pytest==9.0.3",
   "pytest-xdist==3.8.0",
   "ruff==0.15.13",
